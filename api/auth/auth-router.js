@@ -38,4 +38,21 @@ router.post('/login', checkUsernameExists, validateCreds, (req, res, next) => {
     })
     .catch(next)
 })  
+
+router.get('/logout', async (req, res, next) => { 
+  if (!req.session.user) {
+    return res.json({ message: 'no session' })
+  }
+  req.session.destroy((err) => {
+    if (err) {
+      return res.json({ message: 'error while logging out' })
+    }
+    res.json({ message: 'logged out' })
+  })
+})
+
+router.post('/logout', (req, res) => {
+  res.json({message: "logout successful when token removed"})
+})
+
 module.exports = router;
