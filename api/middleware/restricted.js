@@ -1,8 +1,8 @@
-const { JWT_SECRET } = require('../secrets');
+const { JWT_SECRET } = require('../config');
 const jwt = require('jsonwebtoken');
 
 
-const restricted = (req, res, next) => {
+const restrict = (req, res, next) => {
   const token = req.headers.authorization
   if (!token) {
     return next({ status: 401, message: 'we wants token' })
@@ -17,5 +17,5 @@ const restricted = (req, res, next) => {
 }
 
 module.exports = {
-  restricted
+  restrict
 }
