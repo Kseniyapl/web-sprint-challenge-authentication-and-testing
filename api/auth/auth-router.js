@@ -3,10 +3,12 @@ const bcrypt = require('bcryptjs');
 const { tokenBuilder } = require('./auth-helper')
 const { BCRYPT_ROUNDS } = require('../config')
 const Users = require('../users/user-model')
+const { validateCreds, checkUsernameExists, checkUsernameFree }= require('./auth-middleware')
 
 
 
-router.post('/register', (req, res, next) => {
+
+router.post('/register', validateCreds, checkUsernameFree, (req, res, next) => {
   let user = req.body
   const hash = bcrypt.hashSync(user.password, BCRYPT_ROUNDS)
   user.password = hash
