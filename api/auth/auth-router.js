@@ -29,7 +29,7 @@ router.post('/login', checkUsernameExists, validateCreds, (req, res, next) => {
     if (user && bcrypt.compareSync(password, user.password)) {
       const token = tokenBuilder(user)
         res.status(200).json({
-          message: `Welcome back ${user.username}...`,
+          message: `Welcome back, ${user.username}...`,
           token,
         })
       } else {

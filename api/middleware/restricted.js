@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const restrict = (req, res, next) => {
   const token = req.headers.authorization
   if (!token) {
-    return next({ status: 401, message: 'we wants token' })
+    return next({ status: 401, message: 'we want token' })
   }
   jwt.verify(token, JWT_SECRET, (err, decoded)=> {
     if (err) {
