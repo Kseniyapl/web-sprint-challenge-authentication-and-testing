@@ -28,9 +28,9 @@ We will hash the user's password using `bcryptjs`, and use JSON Web Tokens and t
 
 Your finished project must include all of the following requirements (further instructions are found inside each file):
 
-- [ ] An authentication workflow with functionality for account creation and login, implemented inside `api/auth/auth-router.js`.
-- [ ] Middleware used to restrict access to resources from non-authenticated requests, implemented inside `api/middleware/restricted.js`.
-- [ ] A minimum of 2 tests per API endpoint, written inside `api/server.test.js`.
+- [x] An authentication workflow with functionality for account creation and login, implemented inside `api/auth/auth-router.js`.
+- [x] Middleware used to restrict access to resources from non-authenticated requests, implemented inside `api/middleware/restricted.js`.
+- [x] A minimum of 2 tests per API endpoint, written inside `api/server.test.js`.
 
 **IMPORTANT Notes:**
 
@@ -54,6 +54,17 @@ Your finished project must include all of the following requirements (further in
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics.
 
 1. Differences between using _sessions_ or _JSON Web Tokens_ for authentication.
+
+In token-based authentication,  the user state is not stored on the server, as the state is stored inside the token on the client side instead. In session-based authentication, the user session is store in a cookie and passed with each request.
+
 2. What does `bcryptjs` do to help us store passwords in a secure manner?
+
+In token-based authentication,  the user state is not stored on the server, as the state is stored inside the token on the client side instead. In session-based authentication, the user session is store in a cookie and passed with each request.
+
 3. How are unit tests different from integration and end-to-end testing?
+
+Unit tests have a limited coverage (usually a class, a certain function, or algorithm)  , whether Integration and End-to-End are more comprehensive and provide coverage for a lot more elements and interdependencies, such as how different pieces of application interact with other applications.
+
 4. How does _Test Driven Development_ change the way we write applications and tests?
+
+Main benefit of test-driven development is that it makes developers to  focus on requirements before writing actual code. Some benefits may include - better design and code quality, better documentation (since test coverage provides good explanation to what's being developed), and easier maintenance.
